@@ -13,9 +13,9 @@ def main_screen():
     root.title("Login Portal")
     root.geometry("300x300")
 
-    main_page = tk.Frame(root)
-    reg_page = tk.Frame(root)
-    login_page = tk.Frame(root)
+    main_page = tk.Frame(root,bg="#f0fff0")
+    reg_page = tk.Frame(root,bg="#f0fff0")
+    login_page = tk.Frame(root,bg="#f0fff0")
 
     for page in (main_page, reg_page, login_page):
         page.grid(row=0,column=0,sticky='nsew')
@@ -24,7 +24,7 @@ def main_screen():
     Label(main_page,bg="#f0fff0").pack()
     Button(main_page, text="Log-In", height=1, font=("Helvetica", 12), bg="light green", fg="dark green", width=8,command=lambda:show_frame(login_page)).pack()
     Label(main_page,bg="#f0fff0").pack()
-    Button(main_page, text="Registration", height=1, font=("Helvetica", 12), bg="light green", fg="dark green", width=15, command=lambda:registration.tkraise()).pack()
+    Button(main_page, text="Registration", height=1, font=("Helvetica", 12), bg="light green", fg="dark green", width=15, command=lambda:show_frame(login_page)).pack()
     Label(main_page,bg="#f0fff0").pack()
     show_frame(main_page)
     root.mainloop()
