@@ -24,7 +24,7 @@ def main_screen():
     Label(main_page,bg="#f0fff0").pack()
     Button(main_page, text="Log-In", height=1, font=("Helvetica", 12), bg="light green", fg="dark green", width=8,command=lambda:show_frame(login_page)).pack()
     Label(main_page,bg="#f0fff0").pack()
-    Button(main_page, text="Registration", height=1, font=("Helvetica", 12), bg="light green", fg="dark green", width=15, command=lambda:show_frame(login_page)).pack()
+    Button(main_page, text="Registration", height=1, font=("Helvetica", 12), bg="light green", fg="dark green", width=15, command=lambda:show_frame(reg_page)).pack()
     Label(main_page,bg="#f0fff0").pack()
     show_frame(main_page)
     root.mainloop()
