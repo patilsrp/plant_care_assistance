@@ -1,7 +1,6 @@
 from tkinter import *
 import tkinter as tk
-import registration
-import login
+
 def show_frame(frame):
     frame.tkraise()
 
