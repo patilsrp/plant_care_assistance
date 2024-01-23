@@ -1,5 +1,6 @@
 from tkinter import *
 import tkinter as tk
+from login.login_gui import *
 
 def show_frame(frame):
     frame.tkraise()
@@ -14,7 +15,7 @@ def main_screen():
 
     main_page = tk.Frame(root,bg="#f0fff0")
     reg_page = tk.Frame(root,bg="#f0fff0")
-    login_page = tk.Frame(root,bg="#f0fff0")
+    login_page = login_frame(root, show_frame)
 
     for page in (main_page, reg_page, login_page):
         page.grid(row=0,column=0,sticky='nsew')
@@ -27,6 +28,7 @@ def main_screen():
     Label(main_page,bg="#f0fff0").pack()
     show_frame(main_page)
     root.mainloop()
+    return root, main_page, login_page, reg_page
 
 if __name__ == "__main__":
     main_screen()
