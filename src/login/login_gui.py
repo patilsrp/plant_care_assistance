@@ -30,14 +30,14 @@ def login_verify():
     results = db_connection.mycursor.fetchall()
     if results:
         for i in results:
-            logged()
+            logged(login_frame)
             break
     else:
-        failed()
+        failed(login_frame)
 
-def logged():
+def logged(parent):
     global logg
-    logg = Frame(root)
+    logg = Frame(parent,bg="#f0fff0")
     logg.grid(row=0,column=0,sticky="nsew") 
 
     Label(logg, text="Welcome {}".format(username_verify.get()), fg="green",bg="#f0fff0", font="bold").pack()
@@ -45,18 +45,17 @@ def logged():
     Button(logg, text="Browse", height=1, font=("Helvetica", 12), bg="light green", fg="dark green", width=15).pack()
     Button(logg, text="Log-out", font=("Helvetica", 12), bg="light green", fg="dark green", width=8, height=1, command=login_destroy).pack()
     
-def failed():
+def failed(parent):
     global fail 
-    fail =Frame(root)
+    fail =Frame(parent,bg="#f0fff0")
     fail.grid(row=0,column=0,sticky="nsew") 
     
     Label(fail, text="Invalid Credentials...", font=("Helvetica", 12), bg="light green", fg="dark green").pack()
     Label(fail, bg="light green").pack()
     Button(fail, text="OK", font=("Helvetica", 12), bg="light green", fg="dark green", width=8, height=1, command=fail_destroy).pack()
 
-def fail_destroy():
+def fail_destroy(parent):
     fail.destroy()
 
-def login_destroy():
+def login_destroy(parent):
     logg.destroy()
-    login_page.destroy()

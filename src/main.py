@@ -1,5 +1,6 @@
 from tkinter import *
 import tkinter as tk
+from registration.registration_gui import *
 from login.login_gui import *
 
 def show_frame(frame):
@@ -14,10 +15,11 @@ def main_screen():
     root.geometry("300x300")
 
     main_page = tk.Frame(root,bg="#f0fff0")
-    reg_page = tk.Frame(root,bg="#f0fff0")
+    #reg_page = tk.Frame(main_page,bg="#f0fff0")
     login_page = login_frame(root, show_frame)
 
-    for page in (main_page, reg_page, login_page):
+    for page in (main_page,login_page):
+        print(page)
         page.grid(row=0,column=0,sticky='nsew')
 
     Label(main_page, text="Welcome to the login portal", font=("Helvetica", 12), bg="#f0fff0", fg="dark green", width=30).pack()
@@ -28,7 +30,7 @@ def main_screen():
     Label(main_page,bg="#f0fff0").pack()
     show_frame(main_page)
     root.mainloop()
-    return root, main_page, login_page, reg_page
+    return root, main_page, login_page
 
 if __name__ == "__main__":
     main_screen()
